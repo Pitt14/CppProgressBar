@@ -1,2 +1,2 @@
 # CppProgressBar
-Simple, header only progress bar for your C++ program.
+Simple, header only progress bar for your C++ programs.
