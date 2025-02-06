@@ -46,16 +46,16 @@ class ProgressBar {
             time_interval.time_unit = "um";
             if (time_interval.time_delta > 1000 ) {
                 time_interval.time_delta = time_interval.time_delta / 1000.0;
-                time_interval.time_unit = "ms";
+                time_interval.time_unit = "miliseconds";
                 if (time_interval.time_delta > 1000) {
                     time_interval.time_delta = time_interval.time_delta / 1000.0;
-                    time_interval.time_unit = "s";
+                    time_interval.time_unit = "seconds";
                     if (time_interval.time_delta > 60) {
                         time_interval.time_delta = time_interval.time_delta / 60.0;
-                        time_interval.time_unit = "m";
+                        time_interval.time_unit = "minutes";
                         if (time_interval.time_delta > 60) {
                             time_interval.time_delta = time_interval.time_delta / 60.0;
-                            time_interval.time_unit = "h";
+                            time_interval.time_unit = "hours";
                             if (time_interval.time_delta > 24) {
                                 time_interval.time_delta = time_interval.time_delta / 24.0;
                                 time_interval.time_unit = "days";
@@ -87,7 +87,7 @@ class ProgressBar {
         auto time_passed = (std::chrono::steady_clock::now() - _moment_of_creation).count();
         auto estimated_time = (time_passed / current_percent) - time_passed;
         auto time_interval = _get_time_interval(estimated_time);
-        progress_bar += std::to_string(time_interval.time_delta).substr(0, 5) + time_interval.time_unit + std::string(" left");
+        progress_bar += std::to_string(time_interval.time_delta).substr(0, 5) + std::string(" ") + time_interval.time_unit + std::string(" left");
         std::cout << progress_bar << std::endl;
     }
 };
